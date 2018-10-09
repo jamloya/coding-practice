@@ -1,0 +1,70 @@
+//QUESTION
+
+
+/*Dhananjay has recently learned about ASCII values.He is very fond of experimenting. With his knowledge of ASCII values and character he has developed a special word and named it Dhananjay's Magical word.
+
+A word which consist of alphabets whose ASCII values is a prime number is an Dhananjay's Magical word. An alphabet is Dhananjay's Magical alphabet if its ASCII value is prime.
+
+Dhananjay's nature is to boast about the things he know or have learnt about. So just to defame his friends he gives few string to his friends and ask them to convert it to Dhananjay's Magical word. None of his friends would like to get insulted. Help them to convert the given strings to Dhananjay's Magical Word.
+
+Rules for converting:
+
+1.Each character should be replaced by the nearest Dhananjay's Magical alphabet.
+
+2.If the character is equidistant with 2 Magical alphabets. The one with lower ASCII value will be considered as its replacement.*/
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int check(int b)
+{
+    int prime[]={67,71,73,79,83,89,97,101,103,107,109,113};
+    int temp1,temp;
+    if(b<prime[0])
+    {
+        return prime[0];
+    }
+    for(int i=0;i<12;i++)
+    {
+        if(b==prime[i])
+        {
+            return b;
+        }
+        else if(b<prime[i])
+        {
+            temp=prime[i];
+            temp1=prime[i-1];
+            if((temp-b)<(b-temp1))
+            {   
+                
+                return temp;
+            }
+            else
+            {   
+                return temp1;
+            }
+        }
+    }
+    return prime[11];
+    
+}
+
+int main(){
+    int t,n,as,c;
+    cin>>t;
+    for(int i=0;i<t;i++)
+    {
+        cin>>n;
+        char a[n],b[n];
+        cin>>a;
+        for(int j=0;j<n;j++)
+        {
+            as=int(a[j]);
+            c=check(as);
+            cout<<char(c);
+        }
+        cout<<"\n";
+    }
+    
+}

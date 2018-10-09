@@ -1,0 +1,57 @@
+/*You are given a string S.
+
+Q number of operations are performed on string S.
+In each of these Q operations, you are given an index ind and a character ch . For each operation, you have to update character at index ind in string S to ch, that is, after this operation s[ind]=ch .
+It is guaranteed that any index is updated atmost once.
+We call the final string after performing Q number of operations as str .
+
+After this, M number of operations are performed on string str.
+In each of these M operations, you are given two indices a and b. For each operation, you have to reverse the substring that lies between the indices a and b (inclusive). 
+We call the final string after performing M operations as fin.
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{   string S,S1;
+    int q,m,ind,a,b;
+    char c;
+    cin>>S;
+    cin>>q;
+    while(q!=0)
+    {
+        cin>>ind;
+        cin>>c;
+        S[ind-1]=c;
+        q--;
+    }
+    cout<<S<<endl;
+    S1=S;
+    cin>>m;
+    while(m!=0)
+    {
+        cin>>a;
+        cin>>b;
+        a=a-1;b=b-1;
+        while(a<b)
+        {
+		c=S1[a];
+		S1[a]=S1[b];
+		S1[b]=c;
+		a++;
+		b--;
+	}
+	m--;
+    }
+    cout<<S1<<endl;
+    a=0;
+    for(int i=0;i<S.length();i++)
+    {
+        if(S[i]==S1[i])
+        {
+            a++;
+        }
+    }
+    cout<<a;
+}

@@ -1,0 +1,60 @@
+/*Indian army is going to do a surprise attack on one of its enemies country. The President of India, the Supreme Commander of the Indian Army will be sending an alert message to all its commanding centers. As enemy would be monitoring the message, Indian army is going to encrypt(cipher) the message using basic encryption technique. A decoding key 'K' (number) would be sent secretly.
+
+You are assigned to develop a cipher program to encrypt the message. Your cipher must rotate every character in the message by a fixed number making it unreadable by enemies.
+
+Given a single line of string 'S' containing alpha, numeric and symbols, followed by a number '0<=N<=1000'. Encrypt and print the resulting string.
+
+Note: The cipher only encrypts Alpha and Numeric. (A-Z, a-z, and 0-9) . All Symbols, such as - , ; %, remain unencrypted.*/
+
+
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    char a[1000],b[1000];
+    int n,k;
+    cin>>a;
+    k=strlen(a);
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {   
+        if(int(a[i])==32)
+        {
+            b[i]=char(45);
+            break;
+        }
+        else if(int(a[i])<65 && int(a[i])>90  || int(a[i])<97 && int(a[i])>122)
+        {
+            b[i]=a[i];
+        }
+        else if(int(a[i])<=65 && int(a[i]>=90))
+        {   if((n+int(a[i])>=90))
+        {
+            int j;
+            j=(int(a[i])+n)-90;
+            b[i]=char((a[i])+j);
+            break;
+        }
+        else
+            {b[i]=char(a[i]+n);}
+            
+        }
+        else if(int(a[i])<=97 && int(a[i]>=122))
+        {
+             if((n+int(a[i])>=122))
+        {
+            int j;
+            j=(int(a[i])+n)-122;
+            b[i]=char((a[i])+j);
+            break;
+        }
+        else
+            {b[i]=char(a[i]+n);}
+        }
+    }
+    cout<<b;
+    
+}

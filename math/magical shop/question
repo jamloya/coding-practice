@@ -1,0 +1,6 @@
+There is a magical shop owned by The Monk, which consists of magical potions. On the first day there are A number of potions. Let, potions[I] denote the number of potions present in the shop on the Ith day.
+
+potions[I] = potions[I-1] * potions[I-1]
+You, Monk's favorite student love to play around with various types of potions. So, you visit the shop regularly and buy all the potions and just keep them with yourself. However, the Monk allows you to go to the shop only on specific days.
+
+You have to find the number of potions that you will have at the very end. Since, the answer can be very large, output it modulo B.

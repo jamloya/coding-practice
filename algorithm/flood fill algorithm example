@@ -1,0 +1,79 @@
+/*There is a robot named Micro in a matrix A, of integers of size (N*M), initially placed at the cell (X1,Y1).
+He has to rescue his princess Mini placed at cell (X2,Y2).
+Rows are numbered from 1 to N and columns are numbered from 1 to M. 
+He can move one step in either of the four directions: up, down, left and right. 
+Also he can make a move if value at cell he is currently at is strictly less than the value at cell he is moving to. 
+Help Micro find out if he can rescue his princess or not
+*/
+
+
+#include<iostream>
+using namespace std;
+int check(int x,int y,int n,int m){
+    int res=0;
+    if(x>=0&&x<n&&y>=0&&y<m){
+        res=1;
+    }
+    return res;
+}
+int main()
+{
+    int t,flag,c,x1,y1,x2,y2,n,m;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>m;
+        int a[n][m];
+        cin>>x1>>y1>>x2>>y2;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+             cin>>a[i][j];   
+            }
+        }
+        flag=0;c=0;
+        int count=0;
+        x1=x1-1;y1=y1-1;x2-=1;y2-=1;
+        int p=x1,q=x2,w=y1,z=y2;
+        while(flag!=1)
+        {  
+            
+            if(x1==x2 && y1==y2)
+            {
+            cout<<"YES"<<endl;
+            flag=1;
+            c=1;
+            }
+            if(check(x1+1,y1,n,m)){
+            if(a[x1][y1]<a[x1+1][y1])
+            {   
+                x1=x1+1;
+            }}
+            if(check(x1-1,y1,n,m)){
+            if(a[x1][y1]<a[x1-1][y1])
+            {   
+                x1=x1-1;
+            }}
+            if(check(x1,y1+1,n,m)){
+            if(a[x1][y1]<a[x1][y1+1])
+            {
+                y1=y1+1;
+            }}
+            if(check(x1,y1-1,n,m)){
+            if(a[x1][y1]<a[x1][y1-1])
+            {   
+                y1=y1-1;
+            }}
+            if(p==x1 && q==x2 && w==y1 && z==y2)
+            {
+                flag=1;
+            }
+            p=x1;q=x2;w=y1;z=y2;
+        }
+        if(c==0)
+        {
+            cout<<"NO"<<endl;
+        }
+    }
+}

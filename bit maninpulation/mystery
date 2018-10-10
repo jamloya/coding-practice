@@ -1,0 +1,39 @@
+/*
+Jon Snow visits Dragonstone to meet Daenerys Targaryen. 
+He asks for aid in defeating the White Walkers and Army of Dead.
+But Daenerys refuses to believe that white walkers are real. 
+She puts a condition before Jon that if he solves the challenge given by her then she will send her army to fight White Walkers. 
+She gives certain inputs and outputs , Jon needs to find the logic and predict the output for the corresponding inputs.
+Jon Snow is struggling with the challenge as he knows nothing!! 
+Help Jon to find the logic and win this challenge.*/
+
+
+#include <iostream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+
+long long int n, temp = 0;
+int count = 0;
+
+while(scanf("%lld", &n)== 1)
+{
+count = 0, temp = 0;
+while(n > 0)
+{
+temp = n % 2;
+count++;
+if(temp == 1)
+break;
+n = n / 2;
+}
+long long int ans = pow(2,count-1);
+cout<<ans<<endl;
+}
+return 0;
+}

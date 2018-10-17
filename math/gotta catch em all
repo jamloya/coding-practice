@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n;
+    cin>>t;
+    cin>>n;
+        int a[n],b[n],c=0,x;
+        for(int i=0;i<n;i++)
+        { c=0;
+            for(int j=1;j<=(i+1)/2;j++)
+            { 
+                if(((i+1)%j)==0)
+                { 
+                    c++;
+                }
+            }
+            a[i]=(++c);
+            b[i]=a[i];
+        }
+        sort(b,b+n);
+        while(t--)
+        { c=0;
+            cin>>x;
+            int i=0;
+            while(a[x-1]>b[i])
+            { i++;
+                c++;
+            }
+            cout<<c<<endl;
+        }
+}

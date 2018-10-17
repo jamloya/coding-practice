@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+while(n--)
+{
+long r,c,o=0,e=0,temp,num,temp1;
+cin>>r>>c;
+if(r<=c)
+{
+temp=r/2;
+if(r%2==0)
+{
+e=temp*(temp+1);
+o=temp*temp;
+}
+else
+{
+e=temp*(temp+1);
+o=(temp+1)*(temp+1);
+}}
+else
+{
+temp1=c/2;
+if(c%2==0)
+{
+e=temp1*(temp1+1);
+o=temp1*temp1;
+}
+else
+{
+e=temp1*(temp1+1);
+o=(temp1+1)*(temp1+1);
+}
+num=r-c;
+if(num%2==0)
+{
+o+=((num/2)*c);
+e+=((num/2)*c);
+
+}
+else
+{
+if(c%2==0)
+{
+o+=(((num/2)+1)*c);
+e+=((num/2)*c);
+}
+else
+{
+e+=(((num/2)+1)*c);
+o+=((num/2)*c); 
+}
+}
+}
+cout<<e<<" "<<o;
+cout<<endl; 
+}
+}

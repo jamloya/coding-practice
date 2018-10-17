@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    double  a,b,c,res,temp;
+    while(t--)
+    {
+        cin>>a>>b>>c;
+        temp=(a+b+c)*(a+b-c)*(b+c-a)*(c+a-b);
+        temp=sqrt(temp);
+        temp=(a*b*c)/temp;
+        res=3.1415*(pow(temp,2));
+        cout << setprecision(4) << fixed << res<< endl;
+    }
+}

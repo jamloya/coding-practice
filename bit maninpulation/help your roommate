@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+
+int main()
+{
+int t;
+int rem;
+int a[100];
+int count;
+
+cin>>t;
+for(int i=0;i<t;i++)
+{
+cin>>a[i];
+}
+for(int i=0;i<t;i++)
+{
+int num;
+num = a[i];
+while(num != 0)
+{
+rem = num%2;
+num = num>>1;
+count = count + rem;
+}
+cout<<count<<endl;
+count = 0;
+}
+}

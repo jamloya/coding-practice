@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+void update(int a[])
+{
+    int x,y;
+    cin>>x>>y;
+    a[x]=y;
+    return;
+}
+void calc(int a[],int b)
+{
+    int l,r;
+    cin>>l>>r;
+    if(l>r || l<0 || r>b)
+    {
+        cout<<"-1\n";
+        return;
+    }
+    else
+    { int add=0;
+        for(int i=l;i<=r;i++)
+        {
+            add=add+a[i];
+            
+        }
+        cout<<add<<"\n";
+        return;
+    }
+}
+int main()
+{
+    int n,q,check;
+    cin>>n>>q;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    while(q!=0)
+    {
+        cin>>check;
+        if(check==1)
+        {
+            update(a);
+        }
+        else
+        {
+            calc(a,n);
+        }
+        q--;
+    }
+}

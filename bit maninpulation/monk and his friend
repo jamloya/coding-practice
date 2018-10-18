@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    long int t,m,p,c;
+    cin>>t;
+    while(t--)
+    {   c=0;
+        cin>>m>>p;
+    
+        while(m!=0 || p!=0)
+        {
+            
+        if((m%2)!=(p%2))
+        {
+            c++;
+        }
+        m=m/2;p=p/2;
+            
+        }
+        cout<<c<<endl;
+    }
+}

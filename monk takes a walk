@@ -1,0 +1,22 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+ 
+int main()
+{
+    int t,c=0;
+    string a;
+    cin>>t;
+    while(t--)
+    {   
+        cin>>a;
+        transform(a.begin(), a.end(), a.begin(), ::tolower);
+        c+=count(a.begin(),a.end(),'a');
+        c+=count(a.begin(),a.end(),'e');
+        c+=count(a.begin(),a.end(),'o');
+        c+=count(a.begin(),a.end(),'i');
+        c+=count(a.begin(),a.end(),'u');
+        cout<<c<<endl;
+        c=0;
+    }
+}

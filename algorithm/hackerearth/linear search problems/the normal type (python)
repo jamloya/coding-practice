@@ -1,0 +1,16 @@
+ls1,ls3=[],[]
+n=int(input())
+ls=[int(i) for i in input().split()]
+#print(len(ls))
+for i in range(0,len(ls)):
+    if ls[i] not in ls1:
+        ls1.append(ls[i])
+        
+    ls2=[]
+    for j in ls[i:]:
+        if j not in ls2:
+              ls2.append(j)
+        ls3.append(len(ls2))
+
+
+print(ls3.count(len(ls1)))

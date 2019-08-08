@@ -1,0 +1,76 @@
+
+//QUESTION
+
+
+There are a lot of Poke'mons who are jealous of the fact that they do NOT have any specialty, they're the... normal type of Poke'mon. But, what they fail to realize is that their power is their normalcy, the ability to think, rationalize and then act.
+
+But, they do have an additional power... Poke'mons like Jigglypuff - which are normal, can figure out if a trainer is real or is a part of Team Rocket. And they need to use their power to a great extent.
+
+In an array, which consists of N elements, A1, A2, ..., AN, if a subarray has the total number of distinct elements as that of the original array, that determines the presence of Team Rocket.
+
+You've to help the normal type Poke'mons in figuring out the total number of subarrays having total number of distinct elements same as that of the original array.
+
+
+LINK:-https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/the-normal-type/
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+/*void print_array(int a[], int i ,int j)
+{
+    for(int m=i;m<j+1;m++)
+    {
+        cout<<a[m];
+    }
+}*/
+
+int countapperances(int a[],int i ,int j)
+{   int temp=0;
+ /*print_array(a,i,j);
+    cout<<endl;*/
+    for(int m=i;m<j+1;m++)
+    {  //cout<<count(a+i,a+m+1,a[m])<<endl;
+        if(count(a+i,a+m+1,a[m])==1)
+        {
+            temp++;
+        }
+    }
+   
+    return temp;
+}
+int  main()
+{
+    int n;
+    cin>>n;
+    int a[n]={0},tds=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        
+        if(count(a,a+n,a[i])==1)
+        {
+            
+            tds++;
+        }
+    }
+    
+    int total=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        { int temp=countapperances(a,i,j);
+            
+            if (temp==tds)
+            {
+                total++;
+            }
+        }
+    }
+   cout<<total;
+}

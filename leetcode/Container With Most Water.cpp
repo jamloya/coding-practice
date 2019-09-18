@@ -1,3 +1,7 @@
+
+
+====================================================Brute Force==================================================
+
 class Solution {
 public:
     int maxArea(vector<int>& height) {
@@ -22,3 +26,25 @@ public:
         return a<b?a:b;
     }
 };
+
+
+
+
+====================================================O(n) solution=============================================================
+    
+    class Solution {
+    public:
+    int maxArea(vector<int>& height) {
+        int maxarea=0,l=0,r=height.size()-1;
+        while(l<r)
+        {
+            int newarea=height[l]<height[r]?height[l]*(r-l):height[r]*(r-l);
+            maxarea=newarea>maxarea?newarea:maxarea;
+            if(height[l]>height[r]) r--;
+            else l++;
+        }
+        return maxarea;
+    }
+};
+
+

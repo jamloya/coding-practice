@@ -49,3 +49,46 @@ public:
         return res;
     }
 };
+
+
+
+
+==============================================================OR=====================================================================
+    
+    class Solution {
+    public:
+        string simplifyPath(string str) {
+            stack<string> s2;
+            for(int i=0;i<str.size();i++)
+            {   //cout<<str[i];
+                if(str[i]=='/' && i+1<str.size())
+                {    //cout<<"l"<<endl;
+                    if(str[i+1]=='/' )continue;
+                    else{
+                      i++;
+                      string g=str.substr(i,1);int c=0;int d=0;
+                      if(str[i]=='.')c++;
+                        i++;
+                        while(true)
+                            {   //cout<<str[i]<<i<<endl;
+                                if(str[i]=='/' || i>=str.size()){break;}
+                                else if(str[i]=='.'){g+=str[i]; i++;c++; }
+                                else {g+=str[i];i++; d++;}
+                            }
+                     
+                         i--;//cout<<g<<c<<endl;
+                        if(c!=2 && c!=1 || d!=0){s2.push(g);}
+                        else if(c==2 && s2.size()!=0){s2.pop();}
+                    }
+                }
+            }
+            string res="";
+            if(s2.size()==0)return "/";
+            else{
+                while(!s2.empty()){
+                res="/"+s2.top()+res;
+                s2.pop();}
+            }
+            return res;
+    }
+};

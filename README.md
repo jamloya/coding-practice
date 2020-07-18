@@ -1,2 +1,1 @@
-# hackerearth
-this repository has the solution of hackerearth problems
+my coding practice codes for the preparation of placement 
